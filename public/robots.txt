@@ -1,3 +1,5 @@
 
 User-agent: *
 Allow: /
+
+Sitemap: https://savora-restaurant-vert-eta.vercel.app/sitemap.xml
