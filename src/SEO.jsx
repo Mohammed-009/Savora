@@ -1,41 +1,30 @@
 
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
-function SEO({
-  title,
-  description,
-  url,
-}) {
-  const siteName = "SAVORA";
-  const pageTitle = `${title} | ${siteName}`;
+const SITE_URL = "https://savora-restaurant-vert-eta.vercel.app";
+
+function SEO({ title, description }) {
+  const { pathname } = useLocation();
+
+  const canonicalPath =
+    pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+  const pageTitle = `${title} | SAVORA`;
 
   return (
     <Helmet>
       <title>{pageTitle}</title>
 
-      <meta
-        name="description"
-        content={description}
-      />
+      <meta name="description" content={description} />
 
-      <meta
-        property="og:title"
-        content={pageTitle}
-      />
+      <link rel="canonical" href={canonicalUrl} />
 
-      <meta
-        property="og:description"
-        content={description}
-      />
-
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-
-      {url && (
-        <>
-          <link rel="canonical" href={url} />
-          <meta property="og:url" content={url} />
-        </>
-      )}
+      <meta property="og:url" content={canonicalUrl} />
     </Helmet>
   );
 }
