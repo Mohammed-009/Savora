@@ -1,0 +1,809 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+/* =========================
+   SAVORA - GLOBAL STYLES
+========================= */
+
+:root {
+  --color-ivory: #f8f6f0;
+  --color-cream: #eee9df;
+  --color-charcoal: #252722;
+  --color-coal: #3f3f3f;
+  --color-olive: #626b4f;
+  --color-gold: #b89b63;
+  --color-white: #ffffff;
+  --color-muted: #77776f;
+  --color-light-muted: #aaaaa6;
+
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --transition: all 0.3s ease;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: var(--font-body);
+  /* font-size: 16px; */
+  padding-top: 70px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-charcoal);
+  background-color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+.form-control,
+.form-select {
+  padding: 13px 15px;
+  border: 1px solid #dedbd1;
+  border-radius: 0;
+  background-color: var(--color-white);
+  font-family: var(--font-body);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-olive);
+  box-shadow: 0 0 0 0.15rem rgb(98 107 79 / 15%);
+}
+
+/*########## Home.jsx ##############*/
+/* Home page sections*/
+/* section 1 */
+.home-hero {
+  min-height: 85vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: relative;
+  padding: 80px 14%; /* moved inward from the left */
+  color: #fff;
+  text-align: left;
+}
+
+/* Dark overlay for readable text */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 650px;
+  text-align: left;
+}
+
+.home-hero-content h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 20px 0;
+}
+
+.home-hero-content p {
+  line-height: 1.8;
+}
+
+.hero-title {
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.05;
+  margin: 20px 0;
+}
+
+.btn-explore {
+  color: var(--color-charcoal);
+  background-color: var(--color-gold);
+  font-size: 13px;
+  letter-spacing: 3px;
+  border-radius: 0px;
+}
+
+.btn-explore:hover {
+  color: var(--color-gold);
+  background-color: transparent;
+  border: 1px solid var(--color-gold);
+}
+
+.btn-reserve {
+  background-color: transparent;
+  color: var(--color-cream);
+  border: 1px solid var(--color-cream);
+  font-size: 13px;
+  letter-spacing: 3px;
+  border-radius: 0px;
+}
+
+.btn-reserve:hover {
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+}
+
+/* section 2 */
+.second-header-section {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-gold);
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+.section-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+
+/* These styles also apply to the menu page */
+.btn-fullmenu {
+  background-color: var(--color-charcoal);
+  color: var(--color-cream);
+  border-radius: 0px;
+}
+.btn-fullmenu:hover {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-charcoal);
+}
+
+/* Consistent card dimensions */
+.savora-dish-card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-cream);
+  border-radius: 4px;
+  background-color: var(--color-white);
+}
+
+/* image the same height */
+.dish-image-container {
+  height: 240px;
+  overflow: hidden;
+}
+
+/* Image sizing and zoom-out effect */
+.dish-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom out on cursor */
+.savora-dish-card:hover .dish-image {
+  transform: scale(0.92);
+}
+
+/* Keep card content aligned */
+.savora-dish-card .card-body {
+  padding: 1.25rem;
+}
+
+.savora-dish-card .card-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-charcoal);
+}
+
+.savora-dish-card .card-text {
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* section 3 */
+.third-header-section {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+  background-color: var(--color-cream);
+}
+
+.column-image-wrapper .image-column {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+}
+
+.btn-discover {
+  background-color: var(--color-charcoal);
+  color: var(--color-cream);
+  border-radius: 0px;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+.btn-discover:hover {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-charcoal);
+}
+
+/* section 4 */
+.fourth-header-section {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+  background-color: var(--color-charcoal);
+}
+
+.card-backgroound {
+  background-color: var(--color-charcoal);
+  border: none;
+  border-top: 1px solid var(--color-gold);
+  height: 300px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0px;
+  overflow: hidden;
+}
+.card-backgroound:hover {
+  background-color: var(--color-coal);
+  border: none;
+  border-top: 1px solid var(--color-gold);
+  box-sizing: border-box;
+}
+
+/* section 5 */
+.fifth-header-section {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+  background-color: var(--color-cream);
+}
+
+.card-backgroound-fifth {
+  background-color: var(--color-ivory);
+  border-radius: 0px;
+  transition:
+    transform 0.3s ease,
+    border 0.3s ease;
+  min-height: 320px;
+  padding: 30px;
+  width: 100%;
+}
+
+.card-backgroound-fifth:hover {
+  border: 1px solid var(--color-gold);
+  transform: translateY(-8px);
+}
+
+/* section 6 */
+.sixth-header-section {
+  position: relative;
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+  isolation: isolate;
+}
+
+.sixth-header-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(37, 39, 34, 0.65);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+.sixth-header-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-reservation-sixth {
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
+  letter-spacing: 3px;
+  border-radius: 0px;
+  font-size: 13px;
+}
+
+.btn-reservation-sixth:hover {
+  background-color: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  border-radius: 0px;
+}
+
+/* menu page styles */
+/* section 1 */
+.menu-section-first {
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: relative;
+  padding: 80px 14%; /* moved inward from the left */
+  color: #fff;
+  text-align: left;
+}
+.menu-section-first::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.menu-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 650px;
+  text-align: left;
+}
+
+.menu-content h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 20px 0;
+}
+
+.menu-title {
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.05;
+  margin: 20px 0;
+}
+
+/* section 2 */
+.menu-section-second {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+}
+.btn-tabs-menu {
+  background-color: transparent;
+  border: 0.1px solid var(--color-charcoal);
+  border-radius: 0px;
+  color: var(--color-charcoal);
+}
+.btn-tabs-menu:hover {
+  background-color: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+}
+.btn-tabs-menu.active {
+  background-color: var(--color-charcoal);
+  color: var(--color-cream);
+  border: 0px;
+}
+
+/* section 3 */
+.menu-section-third {
+  position: relative;
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+  isolation: isolate;
+}
+
+.menu-section-third::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(37, 39, 34, 0.65);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+.menu-section-third > .container {
+  position: relative;
+  z-index: 1;
+}
+.btn-reservation-menu {
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
+  letter-spacing: 3px;
+  border-radius: 0px;
+  font-size: 13px;
+}
+
+.btn-reservation-menu:hover {
+  background-color: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  border-radius: 0px;
+}
+
+/* About page sections styles */
+/* section 1 */
+.about-section-first {
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: relative;
+  padding: 80px 14%; /* moved inward from the left */
+  color: #fff;
+  text-align: left;
+}
+.about-section-first::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.about-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 650px;
+  text-align: left;
+}
+
+.about-content h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 20px 0;
+}
+
+.about-title {
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.05;
+  margin: 20px 0;
+}
+
+/* section 2 */
+.about-section-second {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+  background-color: var(--color-cream);
+}
+
+.column-image-wrapper-about .image-column {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+/* section 3 */
+.about-section-third {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+  background-color: var(--color-charcoal);
+}
+.card-background-about {
+  background-color: var(--color-charcoal);
+  border: none;
+  border-top: 1px solid var(--color-gold);
+  height: 300px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0px;
+  overflow: hidden;
+}
+.card-background-about:hover {
+  background-color: var(--color-coal);
+  border: none;
+  border-top: 1px solid var(--color-gold);
+  box-sizing: border-box;
+}
+
+/* section 4 */
+.about-section-fourth {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+  background-color: var(--color-ivory);
+}
+.column-image-wrapper-cheff .image-column {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  display: block;
+}
+
+/* section 5  */
+.about-section-fifth {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+  background-color: var(--color-cream);
+}
+
+.card-background-values {
+  background-color: var(--color-ivory);
+  border-radius: 0;
+  transition:
+    transform 0.3s ease,
+    border 0.3s ease;
+  min-height: 300px;
+  padding: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-background-values:hover {
+  border: 1px solid var(--color-gold);
+  transform: translateY(-8px);
+}
+
+/* section 6 */
+.about-section-sixth {
+  position: relative;
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+  isolation: isolate;
+}
+.about-section-sixth::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(37, 39, 34, 0.65);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: -1;
+}
+.about-section-sixth > .container {
+  position: relative;
+  z-index: 1;
+}
+.btn-reservation-about {
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
+  letter-spacing: 3px;
+  border-radius: 0px;
+  font-size: 13px;
+}
+
+.btn-reservation-about:hover {
+  background-color: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  border-radius: 0px;
+}
+
+/* Gallery page sections styles */
+/* section 1 */
+.gallery-section-first {
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: relative;
+  padding: 80px 14%; /* moved inward from the left */
+  color: #fff;
+  text-align: left;
+}
+.gallery-section-first::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.gallery-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 650px;
+  text-align: left;
+}
+
+.gallery-content h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 20px 0;
+}
+
+.gallery-title {
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.05;
+  margin: 20px 0;
+}
+
+/* section 2 */
+.gallery-section-second {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+}
+
+.gallery-image-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Subtle zoom on hover */
+.gallery-image-container:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+/* Dark overlay for readable text */
+.gallery-image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 24px;
+  background: linear-gradient(
+    to top,
+    rgba(37, 39, 34, 0.75),
+    rgba(37, 39, 34, 0) 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.gallery-image-container:hover .gallery-image-overlay {
+  opacity: 1;
+}
+.gallery-image-title {
+  color: var(--color-gold);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  transform: translateY(8px);
+  transition: transform 0.35s ease;
+}
+.gallery-image-subtitle {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 24px;
+  margin-bottom: 0;
+  transform: translateY(8px);
+  transition: transform 0.35s ease;
+}
+.gallery-image-container:hover .gallery-image-title,
+.gallery-image-container:hover .gallery-image-subtitle {
+  transform: translateY(0);
+}
+
+/* Contact page sections styles */
+/* section 1 */
+.contact-section-first {
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: relative;
+  padding: 80px 14%; /* moved inward from the left */
+  color: #fff;
+  text-align: left;
+}
+.contact-section-first::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.contact-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 650px;
+  text-align: left;
+}
+
+.contact-content h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin: 20px 0;
+}
+
+.contact-title {
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.05;
+  margin: 20px 0;
+}
+
+/* section 2 */
+.contact-section-second {
+  padding: 80px 14%;
+  text-align: left;
+  position: relative;
+  background-color: var(--color-cream);
+}
+
+.btn-request-reservation {
+  background-color: var(--color-charcoal);
+  color: var(--color-cream);
+  border-radius: 0px;
+  font-size: 13px;
+}
+.btn-request-reservation:hover {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-charcoal);
+}
+.input-form {
+  background-color: var(--color-cream);
+  border-radius: 0px;
+  border-bottom: 1px solid var(--color-charcoal);
+}
+.label-form {
+  font-size: 13px;
+}
