@@ -144,7 +144,7 @@ function Menu() {
                 id="myTab"
                 role="tablist"
               >
-                <li className="nav-item" role="presentation">
+                <li className="nav-item px-2" role="presentation">
                   <button
                     className="py-2 px-4 btn btn-tabs-menu btn-sm me-2 me-md-4"
                     id="home-tab"
@@ -158,7 +158,7 @@ function Menu() {
                     All
                   </button>
                 </li>
-                <li className="nav-item" role="presentation">
+                <li className="nav-item px-2" role="presentation">
                   <button
                     className="py-2 px-4  btn btn-tabs-menu btn-sm me-2 me-md-4"
                     id="starters-tab"
@@ -172,7 +172,7 @@ function Menu() {
                     Starters
                   </button>
                 </li>
-                <li className="nav-item" role="presentation">
+                <li className="nav-item px-2" role="presentation">
                   <button
                     className="py-2 px-4  btn btn-tabs-menu btn-sm me-2 me-md-4"
                     id="mainCourses-tab"
@@ -186,7 +186,7 @@ function Menu() {
                     Main Courses
                   </button>
                 </li>
-                <li className="nav-item" role="presentation">
+                <li className="nav-item px-2" role="presentation">
                   <button
                     className="py-2 px-4  btn btn-tabs-menu btn-sm me-2 me-md-4"
                     id="desserts-tab"
@@ -200,7 +200,7 @@ function Menu() {
                     Desserts
                   </button>
                 </li>
-                <li className="nav-item" role="presentation">
+                <li className="nav-item px-2" role="presentation">
                   <button
                     className="py-2 px-4  btn btn-tabs-menu btn-sm me-2 me-md-4"
                     id="drinks-tab"
@@ -248,7 +248,7 @@ function Menu() {
 
                             <p className="card-text mt-auto">
                               <small className="text-body-secondary">
-                                ${menuItem0.price}
+                                {menuItem0.price}
                               </small>
                             </p>
                           </div>
@@ -288,7 +288,7 @@ function Menu() {
 
                             <p className="card-text mt-auto">
                               <small className="text-body-secondary">
-                                ${menuItem1.price}
+                                {menuItem1.price}
                               </small>
                             </p>
                           </div>
@@ -329,7 +329,7 @@ function Menu() {
 
                             <p className="card-text mt-auto">
                               <small className="text-body-secondary">
-                                ${menuItem2.price}
+                                {menuItem2.price}
                               </small>
                             </p>
                           </div>
@@ -370,7 +370,7 @@ function Menu() {
 
                             <p className="card-text mt-auto">
                               <small className="text-body-secondary">
-                                ${menuItem3.price}
+                                {menuItem3.price}
                               </small>
                             </p>
                           </div>
@@ -410,7 +410,7 @@ function Menu() {
 
                             <p className="card-text mt-auto">
                               <small className="text-body-secondary">
-                                ${menuItem4.price}
+                                {menuItem4.price}
                               </small>
                             </p>
                           </div>
